@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import QRCode from 'qrcode'
+import QRCode from 'qrcode.react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
