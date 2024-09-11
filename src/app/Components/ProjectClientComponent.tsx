@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import QRCode from 'qrcode.react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useQRCode } from 'next-qrcode' 
 
 interface ProjectType {
   id: number
@@ -20,19 +20,7 @@ interface ProjectType {
 
 const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
   const router = useRouter()
-  const [qrCodeUrl, setQrCodeUrl] = useState<string>('')
-
-  useEffect(() => {
-    if (project.url) {
-      QRCode.toDataURL(project.url)
-        .then((url: string) => {
-          setQrCodeUrl(url)
-        })
-        .catch((err: Error) => {
-          console.error('Error generating QR code:', err)
-        })
-    }
-  }, [project.url])
+  const { Canvas } = useQRCode() 
 
   return (
     <div className='container mx-auto mb-10 mt-10 rounded-lg bg-slate-200 p-6 shadow-slate-700 md:p-10'>
@@ -99,20 +87,24 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
         </p>
       </div>
 
-      {qrCodeUrl && (
-        <div className='mt-8 flex flex-col items-center'>
-          <h2 className='mb-4 text-2xl font-semibold text-gray-800'>
-            Scan QR Code
-          </h2>
-          <Image
-            src={qrCodeUrl}
-            width={200}
-            height={100}
-            alt={`QR code for ${project.title}`}
-            className='mb-4 h-32 w-32 transform rounded-lg border border-gray-300 p-2 shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 md:h-40 md:w-40'
-          />
-        </div>
-      )}
+      <div className='mt-8 flex flex-col items-center'>
+        <h2 className='mb-4 text-2xl font-semibold text-gray-800'>
+          Scan QR Code
+        </h2>
+        <Canvas
+          text={project.url}
+          options={{
+            errorCorrectionLevel: 'M',
+            margin: 3,
+            scale: 4,
+            width: 200,
+            color: {
+              dark: '#010599FF', 
+              light: '#FFBF60FF', 
+            },
+          }}
+        />
+      </div>
     </div>
   )
 }
