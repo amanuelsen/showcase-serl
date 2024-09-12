@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useQRCode } from 'next-qrcode' 
+import { useQRCode } from 'next-qrcode'
 
 interface ProjectType {
   id: number
@@ -20,7 +20,7 @@ interface ProjectType {
 
 const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
   const router = useRouter()
-  const { Canvas } = useQRCode() 
+  const { Canvas } = useQRCode()
 
   return (
     <div className='container mx-auto mb-10 mt-10 rounded-lg bg-slate-200 p-6 shadow-slate-700 md:p-10'>
@@ -99,8 +99,8 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
             scale: 4,
             width: 200,
             color: {
-              dark: '#010599FF', 
-              light: '#FFBF60FF', 
+              dark: '#010599FF',
+              light: '#FFBF60FF',
             },
           }}
         />

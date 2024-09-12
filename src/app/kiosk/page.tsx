@@ -1,15 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Navbarcomponent from '../Components/Navbar'
 import Button from 'react-bootstrap/Button'
 import data from '../lib/data'
 import Image from 'next/image'
-import Loadingspinner from '../Components/Loading' 
+import Loadingspinner from '../Components/Loading'
 
 const AutoCycleKiosk = () => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
-  const [isImageLoading, setIsImageLoading] = useState(true) 
+  const [isImageLoading, setIsImageLoading] = useState(true)
   const cycleInterval = 5000
 
   useEffect(() => {
@@ -22,26 +21,24 @@ const AutoCycleKiosk = () => {
 
   const handleNext = () => {
     setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % data.length)
-    setIsImageLoading(true) 
+    setIsImageLoading(true)
   }
 
   const handlePrevious = () => {
     setCurrentProjectIndex((prevIndex) =>
       prevIndex === 0 ? data.length - 1 : prevIndex - 1
     )
-    setIsImageLoading(true) 
+    setIsImageLoading(true)
   }
 
   const currentProject = data[currentProjectIndex]
 
   const handleImageLoad = () => {
-    setIsImageLoading(false) 
+    setIsImageLoading(false)
   }
 
   return (
     <div className='flex min-h-screen flex-col overflow-hidden bg-gray-100'>
-      <Navbarcomponent />
-
       <div className='mb-10 mt-10 flex flex-grow items-center justify-center'>
         <div className='relative flex h-[600px] w-full max-w-5xl flex-col justify-between rounded-lg bg-white p-6 text-center shadow-lg'>
           <h1 className='text-4xl font-bold text-gray-800'>
@@ -68,7 +65,7 @@ const AutoCycleKiosk = () => {
               alt={currentProject.title}
               width={400}
               height={200}
-              onLoadingComplete={handleImageLoad} 
+              onLoadingComplete={handleImageLoad}
               className={`h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
                 isImageLoading ? 'opacity-0' : 'opacity-100'
               }`}
@@ -105,7 +102,8 @@ const AutoCycleKiosk = () => {
               <Button
                 href={currentProject.url}
                 target='_blank'
-                variant='primary'
+                variant='secondary'
+                color=''
                 size='lg'
               >
                 Visit Project

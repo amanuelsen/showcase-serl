@@ -1,10 +1,9 @@
-'use client' 
+'use client'
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import data from './lib/data'
 import Image from 'next/image'
 import Loadingspinner from './Components/Loading'
-import Navbarcomponent from './Components/Navbar'
 function Homepage() {
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
@@ -34,7 +33,6 @@ function Homepage() {
 
   return (
     <div>
-      <Navbarcomponent />
       <div className='mt-10 text-center'>
         <h2 className='text-3xl font-bold text-blue-600'>
           The total number of projects is {numberOfProjects}

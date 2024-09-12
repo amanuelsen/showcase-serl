@@ -44,7 +44,7 @@ const Navbarcomponent = () => {
               <Link
                 href='/'
                 className={`block px-4 py-2 text-white ${
-                  pathname === '/' ? 'rounded-lg bg-blue-500' : ''
+                  pathname === '/' ? 'rounded-lg bg-blue-800' : ''
                 }`}
               >
                 Home
@@ -52,7 +52,7 @@ const Navbarcomponent = () => {
               <Link
                 href='/project'
                 className={`block px-4 py-2 text-white ${
-                  pathname === '/project' ? 'rounded-lg bg-blue-500' : ''
+                  pathname === '/project' ? 'rounded-lg bg-blue-800' : ''
                 }`}
               >
                 Projects
@@ -60,7 +60,7 @@ const Navbarcomponent = () => {
               <Link
                 href='/kiosk'
                 className={`block px-4 py-2 text-white ${
-                  pathname === '/kiosk' ? 'rounded-lg bg-blue-500' : ''
+                  pathname === '/kiosk' ? 'rounded-lg bg-blue-800' : ''
                 }`}
               >
                 Kiosk
@@ -68,7 +68,7 @@ const Navbarcomponent = () => {
               <Link
                 href='/about'
                 className={`block px-4 py-2 text-white ${
-                  pathname === '/about' ? 'rounded-lg bg-blue-500' : ''
+                  pathname === '/about' ? 'rounded-lg bg-blue-800' : ''
                 }`}
               >
                 About
@@ -76,7 +76,7 @@ const Navbarcomponent = () => {
               <Link
                 href='/contact'
                 className={`block px-4 py-2 text-white ${
-                  pathname === '/contact' ? 'rounded-lg bg-blue-500' : ''
+                  pathname === '/contact' ? 'rounded-lg  bg-blue-800' : ''
                 }`}
               >
                 Contact

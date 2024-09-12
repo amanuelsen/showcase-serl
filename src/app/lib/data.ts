@@ -10,7 +10,7 @@ const data = [
       type: 'web',
     },
     screenshot: 'https://picsum.photos/id/237/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const data = [
       type: 'web',
     },
     screenshot: 'https://picsum.photos/id/238/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const data = [
       type: 'web',
     },
     screenshot: 'https://picsum.photos/id/239/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
 
   {
@@ -49,7 +49,7 @@ const data = [
       type: 'mobile',
     },
     screenshot: 'https://picsum.photos/id/240/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 8,
@@ -62,7 +62,7 @@ const data = [
       type: 'web',
     },
     screenshot: 'https://picsum.photos/id/241/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ const data = [
       type: 'mobile',
     },
     screenshot: 'https://picsum.photos/id/243/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 11,
@@ -101,7 +101,7 @@ const data = [
       type: 'desktop',
     },
     screenshot: 'https://picsum.photos/id/244/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 12,
@@ -114,7 +114,7 @@ const data = [
       type: 'vr',
     },
     screenshot: 'https://picsum.photos/id/244/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 13,
@@ -127,7 +127,7 @@ const data = [
       type: 'web',
     },
     screenshot: 'https://picsum.photos/id/244/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
     id: 14,
@@ -140,7 +140,7 @@ const data = [
       type: 'mobile',
     },
     screenshot: 'https://picsum.photos/id/247/600/400',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
 ]
 

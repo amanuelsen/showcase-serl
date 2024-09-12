@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react' // Import React hooks
 import Container from 'react-bootstrap/Container'
-import Navbarcomponent from '../Components/Navbar'
 import Loadingspinner from '../Components/Loading'
 
 export default function Contact() {
@@ -17,7 +16,6 @@ export default function Contact() {
 
   return (
     <div>
-      <Navbarcomponent />
       <Container>
         {loading ? (
           <Loadingspinner />
@@ -49,7 +47,7 @@ export default function Contact() {
               ></textarea>
               <button
                 type='button'
-                className='w-full rounded-md bg-blue-500 px-4 py-3 text-sm tracking-wide text-white hover:bg-blue-600'
+                className='w-full rounded-md bg-slate-700 px-4 py-3 text-sm tracking-wide text-white hover:bg-blue-600'
               >
                 Send
               </button>
