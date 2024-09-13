@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import data from './lib/data'
-import Image from 'next/image'
 import Loadingspinner from './Components/Loading'
+import Image from 'next/image'
+import {Card, CardHeader, CardBody} from "@nextui-org/react";
+
 function Homepage() {
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
@@ -47,33 +49,37 @@ function Homepage() {
           onChange={handleSearchChange}
           className='mb-4 w-full rounded border border-gray-400 p-2'
         />
+        
 
         {loading ? (
           <Loadingspinner />
         ) : (
           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
             {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className='overflow-hidden rounded-lg border bg-white p-4 shadow-lg'
-              >
-                <Link href={`/project/${project.id}`}>
-                  <Image
-                    width={400}
+              <Link href={`/project/${project.id}`}>
+              <Card className="py-4">
+                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+        <p className="text-tiny uppercase font-bold">{project.description}</p>
+        <small className="text-default-500"> Made by: {project.who}</small>
+        <h4 className="font-bold text-large">  {project.title}</h4>
+      </CardHeader>
+      <CardBody className="overflow-visible py-2">
+      <Image
+                    
+                    alt={project.title}
+                    width={200}
                     height={200}
                     src={project.screenshot}
-                    alt={project.title}
-                    className='h-64 w-full object-cover'
+                    className='h-64 w-full  object-cover'
+
                   />
-                  <h2 className='mb-2 mt-4 text-2xl font-semibold text-gray-800'>
-                    {project.title}
-                  </h2>
-                </Link>
-                <p className='text-gray-600'>{project.description}</p>
-                <p className='mt-1 text-sm text-gray-500'>
-                  Made by: {project.who}
-                </p>
-              </div>
+       
+      </CardBody>
+               
+      </Card>
+      </Link>
+                
+              
             ))}
           </div>
         )}

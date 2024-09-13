@@ -95,7 +95,7 @@ const data = [
     title: 'Video Editing Software',
     description:
       'A desktop application for editing and enhancing videos with various features.',
-    who: 'Teacher',
+    who: 'Phd',
     metadata: {
       tags: ['video editing', 'desktop', 'software'],
       type: 'desktop',
