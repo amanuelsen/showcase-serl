@@ -4,7 +4,7 @@ import Link from 'next/link'
 import data from './lib/data'
 import Loadingspinner from './Components/Loading'
 import Image from 'next/image'
-import {Card, CardHeader, CardBody} from "@nextui-org/react";
+import { Card, CardHeader, CardBody } from '@nextui-org/react'
 
 function Homepage() {
   const [loading, setLoading] = useState(true)
@@ -49,37 +49,35 @@ function Homepage() {
           onChange={handleSearchChange}
           className='mb-4 w-full rounded border border-gray-400 p-2'
         />
-        
 
         {loading ? (
           <Loadingspinner />
         ) : (
           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
             {filteredProjects.map((project) => (
-              <Link href={`/project/${project.id}`}>
-              <Card className="py-4">
-                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <p className="text-tiny uppercase font-bold">{project.description}</p>
-        <small className="text-default-500"> Made by: {project.who}</small>
-        <h4 className="font-bold text-large">  {project.title}</h4>
-      </CardHeader>
-      <CardBody className="overflow-visible py-2">
-      <Image
-                    
-                    alt={project.title}
-                    width={200}
-                    height={200}
-                    src={project.screenshot}
-                    className='h-64 w-full  object-cover'
-
-                  />
-       
-      </CardBody>
-               
-      </Card>
-      </Link>
-                
-              
+              <Link key={project.id} href={`/project/${project.id}`}>
+                <Card className='py-4'>
+                  <CardHeader className='flex-col items-start px-4 pb-0 pt-2'>
+                    <p className='text-tiny font-bold uppercase'>
+                      {project.description}
+                    </p>
+                    <small className='text-default-500'>
+                      {' '}
+                      Made by: {project.who}
+                    </small>
+                    <h4 className='text-large font-bold'> {project.title}</h4>
+                  </CardHeader>
+                  <CardBody className='overflow-visible py-2'>
+                    <Image
+                      alt={project.title}
+                      width={200}
+                      height={200}
+                      src={project.screenshot}
+                      className='h-64 w-full  object-cover'
+                    />
+                  </CardBody>
+                </Card>
+              </Link>
             ))}
           </div>
         )}
