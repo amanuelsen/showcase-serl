@@ -1,17 +1,9 @@
 import React from 'react'
 import { Select, SelectItem } from '@nextui-org/react'
 
-type SelecttypeProps = {
-  selectedCreator: string
-  setSelectedCreator: (value:string) => void
-}
-
-export default function Selecttype({
-  selectedCreator,
-  setSelectedCreator,
-}: SelecttypeProps) {
-  const handleChange = (value: string) => {
-    setSelectedCreator(value)
+export default function Selecttype({ selectedCreator, setSelectedCreator }) {
+  const handleChange = (value) => {
+    setSelectedCreator(value) // Update the selected creator based on the dropdown selection
   }
 
   return (
@@ -21,12 +13,12 @@ export default function Selecttype({
       </label>
 
       <Select
-        placeholder={selectedCreator}
+        placeholder={selectedCreator || 'Choose a Creator'}
         defaultSelectedKeys={['All']}
         onChange={(e) => handleChange(e.target.value)}
         className='w-full max-w-lg text-pretty rounded-lg border border-gray-300 bg-slate-300 shadow-md focus:border-blue-500 focus:ring focus:ring-blue-500'
       >
-        <SelectItem key='' value="">
+        <SelectItem key='' value=''>
           <span className='h-10 text-gray-500'>All</span>
         </SelectItem>
         <SelectItem key='student' value='student'>
