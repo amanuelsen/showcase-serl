@@ -1,92 +1,106 @@
 'use client'
 
+import * as React from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import CssBaseline from '@mui/material/CssBaseline'
+import Divider from '@mui/material/Divider'
+import Drawer from '@mui/material/Drawer'
+import IconButton from '@mui/material/IconButton'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
+import MenuIcon from '@mui/icons-material/Menu'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
 import Link from 'next/link'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import React, { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import { usePathname } from 'next/navigation'
 
-const Navbarcomponent = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+const drawerWidth = 240
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Projects', path: '/project' },
+  { label: 'Kiosk', path: '/kiosk' },
+  { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
+]
+
+export default function Navbarcomp() {
+  const [mobileOpen, setMobileOpen] = React.useState(false)
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen)
   }
 
-  const pageBackground =
-    pathname === '/project'
-      ? 'bg-gray-200'
-      : pathname === '/kiosk'
-        ? 'bg-blue-200'
-        : pathname === '/about'
-          ? 'bg-green-200'
-          : 'bg-white'
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      <Typography variant='h6' sx={{ my: 2 }}>
+        ShowcaseSERL
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.label} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <Link href={item.path}>
+                <ListItemText primary={item.label} />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  )
 
   return (
-    <div className={` ${pageBackground}`}>
-      <Navbar bg='dark' variant='dark' expand='lg' className='shadow-lg'>
-        <Container>
-          <Navbar.Brand href='/'>ShowcaseSERL</Navbar.Brand>
-          <div className='lg:hidden'>
-            <button onClick={toggleMobileMenu} className='text-white'>
-              {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
-          <div
-            className={`lg:flex lg:items-center lg:space-x-6 ${
-              isMobileMenuOpen ? 'block' : 'hidden'
-            } w-full lg:w-auto`}
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar component='nav'>
+        <Toolbar>
+          <IconButton
+            color='inherit'
+            aria-label='open drawer'
+            edge='start'
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <Nav className='w-full lg:flex lg:w-auto lg:space-x-4'>
-              <Link
-                href='/'
-                className={`block px-4 py-2 text-white ${
-                  pathname === '/' ? 'rounded-lg bg-blue-800' : ''
-                }`}
-              >
-                Home
-              </Link>
-              <Link
-                href='/project'
-                className={`block px-4 py-2 text-white ${
-                  pathname === '/project' ? 'rounded-lg bg-blue-800' : ''
-                }`}
-              >
-                Projects
-              </Link>
-              <Link
-                href='/kiosk'
-                className={`block px-4 py-2 text-white ${
-                  pathname === '/kiosk' ? 'rounded-lg bg-blue-800' : ''
-                }`}
-              >
-                Kiosk
-              </Link>
-              <Link
-                href='/about'
-                className={`block px-4 py-2 text-white ${
-                  pathname === '/about' ? 'rounded-lg bg-blue-800' : ''
-                }`}
-              >
-                About
-              </Link>
-              <Link
-                href='/contact'
-                className={`block px-4 py-2 text-white ${
-                  pathname === '/contact' ? 'rounded-lg  bg-blue-800' : ''
-                }`}
-              >
-                Contact
-              </Link>
-            </Nav>
-          </div>
-        </Container>
-      </Navbar>
-    </div>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+            ShowcaseSERL
+          </Typography>
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            {navItems.map((item) => (
+              <Button key={item.label} sx={{ color: '#fff' }}>
+                <Link href={item.path} passHref>
+                  {item.label}
+                </Link>
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Box component='nav'>
+        <Drawer
+          variant='temporary'
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      <Box component='main' sx={{ p: 3 }}>
+        <Toolbar />
+      </Box>
+    </Box>
   )
 }
-
-export default Navbarcomponent

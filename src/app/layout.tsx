@@ -2,9 +2,10 @@ import React from 'react'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './ui/globals.css'
-
+import { Box } from '@mui/material'
+import Navbarcomp from "./Components/Navbar"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Navbarcomponent from './Components/Navbar'
+
 import Footer from './Components/Footer'
 
 const geistSans = localFont({
@@ -33,9 +34,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} flex-grow ${geistMono.variable} antialiased`}
       >
-        <Navbarcomponent />
-        {children}
-        <Footer />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+          }}
+        >
+          <Box component='main' sx={{ flexGrow: 1 }}>
+            <Navbarcomp/>
+            {children}
+          </Box>
+          <Footer />
+        </Box>
       </body>
     </html>
   )
