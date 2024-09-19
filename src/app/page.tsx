@@ -36,8 +36,8 @@ function Homepage() {
   return (
     <div>
       <div className='mt-10 text-center'>
-        <h2 className='text-3xl font-bold text-gray-600'>
-          The total number of projects is {numberOfProjects}
+        <h2 className='text-3xl font-bold text-gray-800'>
+          The total number of projects is: {numberOfProjects}
         </h2>
       </div>
 

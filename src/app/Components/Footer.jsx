@@ -10,10 +10,7 @@ export default function Footer() {
         py: 3,
         px: 2,
         mt: 'auto',
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'blue'
-            ? theme.palette.grey[200]
-            : theme.palette.grey[800],
+        backgroundColor: '#1976d2',
       }}
     >
       <Container maxWidth='lg'>
@@ -24,7 +21,14 @@ export default function Footer() {
           {'© '}
           {new Date().getFullYear()} {'All rights reserved.'}
         </Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            mt: 2,
+          }}
+        >
           <Link href='/about' color='inherit' sx={{ mx: 2 }}>
             About
           </Link>

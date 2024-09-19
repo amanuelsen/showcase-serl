@@ -41,7 +41,7 @@ const AutoCycleKiosk = () => {
     <div className='flex min-h-screen flex-col overflow-hidden bg-gray-100'>
       <div className='mb-10 mt-10 flex flex-grow items-center justify-center'>
         <div className='relative flex h-[600px] w-full max-w-5xl flex-col justify-between rounded-lg bg-white p-6 text-center shadow-lg'>
-          <h1 className='text-4xl font-bold text-gray-800'>
+          <h1 className='m-2 text-4xl font-bold text-gray-800'>
             Kiosk Mode: Auto Cycle
           </h1>
 
@@ -81,7 +81,7 @@ const AutoCycleKiosk = () => {
           </div>
 
           <div className='mt-4'>
-            <h2 className='mb-2 text-3xl font-semibold text-blue-700'>
+            <h2 className='mb-2 text-3xl font-semibold text-gray-700'>
               {currentProject.title}
             </h2>
             <p className='mb-2 text-gray-600'>{currentProject.description}</p>
@@ -102,8 +102,8 @@ const AutoCycleKiosk = () => {
               <Button
                 href={currentProject.url}
                 target='_blank'
-                variant='secondary'
-                color=''
+                variant='primary'
+                color='#1976d2'
                 size='lg'
               >
                 Visit Project

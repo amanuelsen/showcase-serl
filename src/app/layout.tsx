@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './ui/globals.css'
 import { Box } from '@mui/material'
-import Navbarcomp from "./Components/Navbar"
+import Navbarcomp from './Components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Footer from './Components/Footer'
@@ -42,7 +42,7 @@ export default function RootLayout({
           }}
         >
           <Box component='main' sx={{ flexGrow: 1 }}>
-            <Navbarcomp/>
+            <Navbarcomp />
             {children}
           </Box>
           <Footer />

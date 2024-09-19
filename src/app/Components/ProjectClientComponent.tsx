@@ -27,7 +27,7 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
       <div className='mb-4 flex justify-end'>
         <button
           onClick={() => router.back()}
-          className='rounded-full bg-slate-700 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 ease-in-out hover:bg-blue-600'
+          className='rounded-full bg-blue-500 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 ease-in-out hover:bg-blue-600'
         >
           Back
         </button>
