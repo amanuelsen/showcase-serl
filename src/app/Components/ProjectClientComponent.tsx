@@ -23,8 +23,8 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
   const { Canvas } = useQRCode()
 
   return (
-    <div className="container mx-auto mb-10 mt-10 min-h-screen w-[90%] md:w-[70%] lg:w-[60%] rounded-lg bg-slate-200 p-6 shadow-slate-700 md:p-10 overflow-hidden">
-<div className='mb-4 flex justify-end'>
+    <div className='container mx-auto mb-10 mt-10 min-h-screen w-[90%] overflow-hidden rounded-lg bg-slate-200 p-6 shadow-slate-700 md:w-[70%] md:p-10 lg:w-[60%]'>
+      <div className='mb-4 flex justify-end'>
         <button
           onClick={() => router.back()}
           className='rounded-full bg-blue-500 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 ease-in-out hover:bg-blue-600'

@@ -1,9 +1,9 @@
 // pages/api/auth/[...nextauth].js
 
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import GithubProvider from "next-auth/providers/github";
-import { debug } from "console";
+import NextAuth from 'next-auth'
+import GoogleProvider from 'next-auth/providers/google'
+import GithubProvider from 'next-auth/providers/github'
+import { debug } from 'console'
 
 // Configure NextAuth with Google and GitHub providers
 const authOptions = {
@@ -19,7 +19,7 @@ const authOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET, // Your GitHub Client Secret
     }),
   ],
-  debug:true,
+  debug: true,
   callbacks: {
     async jwt({ token, account }) {
       // Persist the OAuth access_token to the token right after signin
@@ -32,13 +32,12 @@ const authOptions = {
       // Send properties to the client, like an access_token from a provider.
       session.accessToken = token.accessToken
       return session
-    }
+    },
   },
   pages: {
-    signIn: "/auth/signin", // Optional: Custom sign-in page URL
+    signIn: '/auth/signin', // Optional: Custom sign-in page URL
   },
-};
-
+}
 
 // Export the NextAuth configuration as default
-export default NextAuth(authOptions);
+export default NextAuth(authOptions)
