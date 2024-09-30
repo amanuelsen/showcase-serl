@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useQRCode } from 'next-qrcode'
 
@@ -14,7 +14,7 @@ interface ProjectType {
     tags: string[]
     type: string
   }
-  screenshot: string
+  screenshot: StaticImageData
   url: string
 }
 
