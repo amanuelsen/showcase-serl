@@ -53,11 +53,11 @@ function Homepage() {
         {loading ? (
           <Loadingspinner />
         ) : (
-          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
             {filteredProjects.map((project) => (
               <Link key={project.id} href={`/project/${project.id}`}>
-                <Card className='py-4'>
-                  <CardHeader className='flex-col items-start px-4 pb-0 pt-2'>
+                <Card className='bg-slate-200 py-4'>
+                  <CardHeader className='m-3 flex-col items-start justify-between px-4 pb-0 pt-2'>
                     <p className='text-tiny font-bold uppercase'>
                       {project.description}
                     </p>
@@ -67,13 +67,13 @@ function Homepage() {
                     </small>
                     <h4 className='text-large font-bold'> {project.title}</h4>
                   </CardHeader>
-                  <CardBody className='overflow-visible py-2'>
+                  <CardBody className='min-h-80 overflow-visible py-2'>
                     <Image
                       alt={project.title}
                       width={200}
                       height={200}
                       src={project.screenshot}
-                      className='h-64 w-full  object-cover'
+                      className='h-full w-full  object-cover'
                     />
                   </CardBody>
                 </Card>

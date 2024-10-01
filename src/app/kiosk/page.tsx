@@ -38,14 +38,14 @@ const AutoCycleKiosk = () => {
   }
 
   return (
-    <div className='flex min-h-screen flex-col overflow-hidden bg-gray-100'>
-      <div className='mb-10 mt-10 flex flex-grow items-center justify-center'>
-        <div className='relative flex h-[600px] w-full max-w-5xl flex-col justify-between rounded-lg bg-white p-6 text-center shadow-lg'>
+    <div className='flex h-full flex-col overflow-hidden '>
+      <div className='mb-10  mt-10 flex flex-grow items-center  justify-center'>
+        <div className='relative flex h-full w-full max-w-5xl   flex-col justify-between rounded-lg bg-customCyan p-6 text-center shadow-lg'>
           <h1 className='m-2 text-4xl font-bold text-gray-800'>
             Kiosk Mode: Auto Cycle
           </h1>
 
-          <div className='relative h-[500px] flex-grow overflow-hidden rounded-lg shadow-md lg:h-[500px]'>
+          <div className='relative  h-full flex-grow overflow-hidden rounded-lg shadow-md lg:h-[500px]'>
             <button
               onClick={handlePrevious}
               className='absolute left-4 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-700 p-3 text-white shadow-lg hover:bg-gray-600'
@@ -63,7 +63,7 @@ const AutoCycleKiosk = () => {
             <Image
               src={currentProject.screenshot}
               alt={currentProject.title}
-              width={400}
+              width={200}
               height={200}
               onLoadingComplete={handleImageLoad}
               className={`h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${

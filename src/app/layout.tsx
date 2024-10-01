@@ -39,6 +39,7 @@ export default function RootLayout({
             display: 'flex',
             flexDirection: 'column',
             minHeight: '100vh',
+            background: '#51e2f5',
           }}
         >
           <Box component='main' sx={{ flexGrow: 1 }}>

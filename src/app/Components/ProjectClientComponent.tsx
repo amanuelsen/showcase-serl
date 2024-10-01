@@ -43,7 +43,7 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
         </p>
       </div>
 
-      <div className='relative mb-8 h-[200px] w-full overflow-hidden rounded-lg shadow-lg md:h-full'>
+      <div className='relative mb-8 h-full w-full overflow-hidden rounded-lg shadow-lg md:h-full'>
         <Image
           src={project.screenshot}
           alt={project.title}

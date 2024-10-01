@@ -28,7 +28,7 @@ function Projectss() {
       <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3'>
         {filteredProjects.map((project) => (
           <Link href={`/project/${project.id}`} key={project.id}>
-            <Card className='py-4'>
+            <Card className='bg-slate-200  py-4'>
               <CardHeader className='flex-col items-start px-4 pb-0 pt-2'>
                 <Image
                   alt={project.title}

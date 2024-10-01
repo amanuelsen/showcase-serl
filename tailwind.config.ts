@@ -12,6 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        customCyan: '#51e2f5',
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
