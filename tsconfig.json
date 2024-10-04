@@ -26,7 +26,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/project/details/[id].jsx"
+    "src/app/project/details/[id].jsx",
+    "src/app/about/page.jsx",
+    "src/app/Components/Navbar.jsx"
   ],
   "exclude": ["node_modules"]
 }
