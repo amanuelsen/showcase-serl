@@ -22,7 +22,8 @@ const data = [
       type: 'web',
     },
     screenshot: ecom,
-    url: 'https://www.wix.com/ecommerce/website',
+    url: 'https://www.wix.com/',
+    datePublished: '2023-06-15',
   },
   {
     id: 2,
@@ -35,7 +36,8 @@ const data = [
       type: 'web',
     },
     screenshot: todolist,
-    url: 'https://todoist.com/sv',
+    url: 'https://todoist.com/',
+    datePublished: '2023-05-20',
   },
   {
     id: 3,
@@ -48,9 +50,9 @@ const data = [
       type: 'web',
     },
     screenshot: blog,
-    url: 'https://www.blogger.com/about/?bpli=1&pli=1',
+    url: 'https://www.blogger.com/',
+    datePublished: '2022-11-10',
   },
-
   {
     id: 7,
     title: 'Mobile Game',
@@ -62,6 +64,7 @@ const data = [
     },
     screenshot: game,
     url: 'https://www.drakensang.com/en?aid=8322&msclkid=e19dff4310f817e2653199b5910fa961',
+    datePublished: '2023-03-02',
   },
   {
     id: 8,
@@ -75,6 +78,7 @@ const data = [
     },
     screenshot: clone,
     url: 'https://oyelabs.com/facebook-clone/',
+    datePublished: '2022-08-25',
   },
   {
     id: 9,
@@ -87,7 +91,8 @@ const data = [
       type: 'web',
     },
     screenshot: chatbot,
-    url: 'https://www.grammarly.com/a/ai?utm_source=bing&utm_medium=cpc&utm_campaign=627242194&utm_content=81295266133136&utm_term=artificial%20intelligence&keywordid=81295459310517&targetid=kwd-81295459310517:loc-174&adgroup=1300723387508773&device=c&matchtype=p&network=s&extension=&clickid=3ffc51b18b7915f6b30537470e455bca&&msclkid=3ffc51b18b7915f6b30537470e455bca&utm_source=bing&utm_medium=cpc&utm_campaign=2023%20-%20Search%20-%20T2%20-%20AI&utm_term=artificial%20intelligence&utm_content=General%20-%20Artificial%20Intelligence&gclid=3ffc51b18b7915f6b30537470e455bca&gclsrc=3p.ds',
+    url: 'https://www.grammarly.com/',
+    datePublished: '2022-12-12',
   },
   {
     id: 10,
@@ -100,20 +105,22 @@ const data = [
       type: 'mobile',
     },
     screenshot: music,
-    url: 'https://glorycloud.tv/?msclkid=a712b4ebe17e19a43a8ed21d64e26a39',
+    url: 'https://glorycloudusa.com/',
+    datePublished: '2023-01-30',
   },
   {
     id: 11,
     title: 'Video Editing Software',
     description:
       'A desktop application for editing and enhancing videos with various features.',
-    who: 'Phd',
+    who: 'PhD',
     metadata: {
       tags: ['video editing', 'desktop', 'software'],
       type: 'desktop',
     },
     screenshot: video,
-    url: 'https://www.movavi.com/adv/video-editor-plus.html?utm_campaign=484347642&utm_campaignid=484347642&utm_adgroupid=1238051129616668&msclkid=7bbd2bbbbd501641f2c24d4d38b1beb5&utm_source=bing&utm_medium=cpc&utm_term=video%20editing%20software&utm_content=VIDEO%20EDITOR%20software',
+    url: 'https://www.movavi.com/se/',
+    datePublished: '2023-04-18',
   },
   {
     id: 12,
@@ -126,7 +133,8 @@ const data = [
       type: 'vr',
     },
     screenshot: virtual,
-    url: 'https://codelivery.tech/gaming/?msclkid=a1c9d233263e16f43ce6b4c5a04dac4c&utm_source=bing&utm_medium=cpc&utm_campaign=Search_Leadgen_Szwecja&utm_term=virtual%20reality%20gaming&utm_content=Gaming_Search1',
+    url: 'https://codelivery.tech/',
+    datePublished: '2023-07-21',
   },
   {
     id: 13,
@@ -139,7 +147,8 @@ const data = [
       type: 'web',
     },
     screenshot: learing,
-    url: 'https://www.kyakademien.se/e-learning-platform/',
+    url: 'https://www.kyakademien.se/',
+    datePublished: '2022-09-05',
   },
   {
     id: 14,
@@ -152,7 +161,8 @@ const data = [
       type: 'mobile',
     },
     screenshot: fit,
-    url: 'https://www.pilatesanytime.com/px/App-v3?msclkid=7638ca4f7e4013c8f809acb9f9f18d99&utm_source=bing&utm_medium=cpc&utm_campaign=Pilates%20App%20-%20Other%20Geos&utm_term=best%20pilates%20workout%20app&utm_content=Pilates%20Best',
+    url: 'https://www.pilatesanytime.com/',
+    datePublished: '2023-08-11',
   },
 ]
 

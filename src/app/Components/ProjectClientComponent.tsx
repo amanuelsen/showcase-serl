@@ -16,6 +16,7 @@ interface ProjectType {
   }
   screenshot: StaticImageData
   url: string
+  datePublished: string
 }
 
 const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
@@ -59,15 +60,20 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
         </h2>
         <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
           <div className='flex items-center'>
-            <p className='text-lg font-medium text-gray-700'>
+            <p className='text-lg font-medium text-black'>
               <span className='font-semibold'>Tags:</span>{' '}
               {project.metadata.tags.join(', ')}
             </p>
           </div>
           <div className='flex items-center'>
-            <p className='text-lg font-medium text-gray-700'>
+            <p className='text-lg font-medium text-black'>
               <span className='font-semibold'>Type:</span>{' '}
               {project.metadata.type}
+            </p>
+          </div>
+          <div className='flex items-center'>
+            <p className='text-lg font-medium text-black'>
+              Published: {project.datePublished}
             </p>
           </div>
         </div>
