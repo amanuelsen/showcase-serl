@@ -1,15 +1,13 @@
-'use client' // Ensure this is a Client Component
-
-import { useSession, signIn, signOut } from 'next-auth/react' // Assuming you're using next-auth for authentication
-import Image from 'next/image'
+import { useSession, signIn, signOut } from 'next-auth/react';
+import Image from 'next/image';
 
 export default function SignIn() {
-  const { data: session } = useSession() // Get the session data
+  const { data: session } = useSession();
 
   const handleSignOut = async () => {
-    await signOut() // Sign out the user
-    window.location.href = '/' // Redirect to home page after signing out
-  }
+    await signOut();
+    window.location.href = '/';
+  };
 
   return (
     <div className='flex h-[465px] items-center justify-center bg-gray-100'>
@@ -17,20 +15,19 @@ export default function SignIn() {
         {session ? (
           <>
             <h2 className='mb-6 text-2xl font-semibold text-gray-800'>
-              Welcome back, {session?.user?.name}!{' '}
+              Welcome back, {session.user?.name}!{' '}
             </h2>
             <h3 className='mb-3 text-xl font-semibold text-gray-500'>
-              {' '}
               You can now navigate around
             </h3>
             <Image
               width={40}
               height={40}
-              src={session?.user?.image}
+              src={session.user?.image || '/default-avatar.png'} 
               alt='Profile Picture'
               className='mb-4 h-16 w-16 rounded-full'
             />
-            <p className='mb-2 text-gray-600'>{session?.user?.email}</p>
+            <p className='mb-2 text-gray-600'>{session.user?.email}</p>
             <button
               onClick={handleSignOut}
               className='flex transform items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 hover:bg-red-500 focus:outline-none focus:ring-4 focus:ring-red-300'
@@ -48,8 +45,8 @@ export default function SignIn() {
             </p>
             <form
               onSubmit={async (e) => {
-                e.preventDefault() // Prevent default form submission
-                await signIn('google')
+                e.preventDefault();
+                await signIn('google');
               }}
             >
               <button
@@ -88,5 +85,5 @@ export default function SignIn() {
         )}
       </div>
     </div>
-  )
+  );
 }
