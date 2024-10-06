@@ -1,3 +1,5 @@
+'use client'; // Add this directive to force client-side rendering
+
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Image from 'next/image';
 
@@ -6,7 +8,6 @@ export default function SignIn() {
 
   const handleSignOut = async () => {
     await signOut();
-    window.location.href = '/';
   };
 
   return (
@@ -20,13 +21,17 @@ export default function SignIn() {
             <h3 className='mb-3 text-xl font-semibold text-gray-500'>
               You can now navigate around
             </h3>
-            <Image
-              width={40}
-              height={40}
-              src={session.user?.image || '/default-avatar.png'} 
-              alt='Profile Picture'
-              className='mb-4 h-16 w-16 rounded-full'
-            />
+            {session.user?.image ? (
+              <Image
+                width={40}
+                height={40}
+                src={session.user?.image }
+                alt='Profile Picture'
+                className='mb-4 h-16 w-16 rounded-full'
+              />
+            ) : (
+              <h1 className='bg-red-600'>No image</h1>
+            )}
             <p className='mb-2 text-gray-600'>{session.user?.email}</p>
             <button
               onClick={handleSignOut}
@@ -46,7 +51,7 @@ export default function SignIn() {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                await signIn('google');
+                await signIn("google", {redirectTo:"/"});
               }}
             >
               <button

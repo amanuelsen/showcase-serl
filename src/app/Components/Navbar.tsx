@@ -186,7 +186,7 @@ export default function ResponsiveAppBar() {
               </>
             ) : (
               <Button
-                onClick={() => signIn('google')}
+                onClick={() => signIn('google',{redirectTo:"/"})}
                 sx={{ color: 'white', my: 2 }}
               >
                 Login
