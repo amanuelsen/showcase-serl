@@ -1,9 +1,11 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useQRCode } from 'next-qrcode'
+import { useSession } from 'next-auth/react'
+import Loadingspinner from './Loading'
 
 interface ProjectType {
   id: number
@@ -22,6 +24,25 @@ interface ProjectType {
 const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
   const router = useRouter()
   const { Canvas } = useQRCode()
+  const { data: session, status } = useSession()
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/profile')
+    }
+  }, [status, router])
+
+  if (status === 'loading') {
+    return (
+      <div>
+        <Loadingspinner />
+      </div>
+    )
+  }
+
+  if (!session) {
+    return null
+  }
 
   return (
     <div className='container mx-auto mb-10 mt-10 min-h-screen w-[90%] overflow-hidden rounded-lg bg-slate-200 p-6 shadow-slate-700 md:w-[70%] md:p-10 lg:w-[60%]'>

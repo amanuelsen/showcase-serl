@@ -4,13 +4,22 @@ import { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 import data from '../lib/data'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import Loadingspinner from '../Components/Loading'
+import { useSession } from 'next-auth/react'
 
 const AutoCycleKiosk = () => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
   const [isImageLoading, setIsImageLoading] = useState(true)
   const cycleInterval = 5000
+  const { data: session, status } = useSession()
+  const router = useRouter()
 
+  useEffect(() => {
+    if (status == 'unauthenticated') {
+      router.push('/profile')
+    }
+  }, [status, router])
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % data.length)
@@ -36,7 +45,12 @@ const AutoCycleKiosk = () => {
   const handleImageLoad = () => {
     setIsImageLoading(false)
   }
-
+  if (status == 'loading') {
+    return <Loadingspinner />
+  }
+  if (!session) {
+    return null
+  }
   return (
     <div className='flex h-full flex-col overflow-hidden '>
       <div className='mb-10  mt-10 flex flex-grow items-center  justify-center'>

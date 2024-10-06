@@ -1,14 +1,25 @@
 'use client'
+
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import data from './lib/data'
 import Loadingspinner from './Components/Loading'
 import Image from 'next/image'
 import { Card, CardHeader, CardBody } from '@nextui-org/react'
+import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 function Homepage() {
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/profile')
+    }
+  }, [status, router])
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,6 +43,18 @@ function Homepage() {
   )
 
   const numberOfProjects = data.length
+
+  if (status === 'loading') {
+    return (
+      <div>
+        <Loadingspinner />
+      </div>
+    )
+  }
+
+  if (!session) {
+    return null
+  }
 
   return (
     <div>
@@ -73,7 +96,7 @@ function Homepage() {
                       width={200}
                       height={200}
                       src={project.screenshot}
-                      className='h-full w-full  object-cover'
+                      className='h-full w-full object-cover'
                     />
                   </CardBody>
                 </Card>

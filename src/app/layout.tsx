@@ -3,10 +3,10 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './ui/globals.css'
 import { Box } from '@mui/material'
-import Navbarcomp from './Components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import Navbarcomp from '@/app/Components/Navbar'
 import Footer from './Components/Footer'
+import { SessionProvider } from 'next-auth/react'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -42,10 +42,12 @@ export default function RootLayout({
             background: '#51e2f5',
           }}
         >
-          <Box component='main' sx={{ flexGrow: 1 }}>
-            <Navbarcomp />
-            {children}
-          </Box>
+          <SessionProvider>
+            <Box component='main' sx={{ flexGrow: 1 }}>
+              <Navbarcomp />
+              {children}
+            </Box>
+          </SessionProvider>
           <Footer />
         </Box>
       </body>
