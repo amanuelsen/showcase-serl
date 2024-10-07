@@ -11,7 +11,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className='flex h-[465px] items-center justify-center bg-gray-100'>
+    <div className='flex h-[700px] overflow-hidden items-center justify-center bg-gray-100'>
       <div className='flex m-5 flex-col items-start rounded-lg bg-white p-8 text-center shadow-lg'>
         {session ? (
           <>
