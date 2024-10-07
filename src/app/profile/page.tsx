@@ -12,7 +12,7 @@ export default function SignIn() {
 
   return (
     <div className='flex h-[465px] items-center justify-center bg-gray-100'>
-      <div className='flex flex-col items-start rounded-lg bg-white p-8 text-center shadow-lg'>
+      <div className='flex m-5 flex-col items-start rounded-lg bg-white p-8 text-center shadow-lg'>
         {session ? (
           <>
             <h2 className='mb-6 text-2xl font-semibold text-gray-800'>
