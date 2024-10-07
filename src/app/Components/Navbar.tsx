@@ -173,7 +173,12 @@ export default function ResponsiveAppBar() {
                       onClick={
                         setting === 'Logout'
                           ? () => signOut()
-                          : handleCloseUserMenu
+                          : setting === 'Profile'
+                            ? () => {
+                                handleCloseUserMenu()
+                                window.location.href = '/profile'
+                              }
+                            : handleCloseUserMenu
                       }
                     >
                       <Typography textAlign='center'>{setting}</Typography>

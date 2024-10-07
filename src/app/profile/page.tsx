@@ -1,18 +1,18 @@
-'use client'; // Add this directive to force client-side rendering
+'use client' // Add this directive to force client-side rendering
 
-import { useSession, signIn, signOut } from 'next-auth/react';
-import Image from 'next/image';
+import { useSession, signIn, signOut } from 'next-auth/react'
+import Image from 'next/image'
 
 export default function SignIn() {
-  const { data: session } = useSession();
+  const { data: session } = useSession()
 
   const handleSignOut = async () => {
-    await signOut();
-  };
+    await signOut()
+  }
 
   return (
-    <div className='flex h-[700px] overflow-hidden items-center justify-center bg-gray-100'>
-      <div className='flex m-5 flex-col items-start rounded-lg bg-white p-8 text-center shadow-lg'>
+    <div className='flex h-[700px] items-center justify-center overflow-hidden bg-gray-100'>
+      <div className='m-5 flex flex-col items-start rounded-lg bg-white p-8 text-center shadow-lg'>
         {session ? (
           <>
             <h2 className='mb-6 text-2xl font-semibold text-gray-800'>
@@ -25,7 +25,7 @@ export default function SignIn() {
               <Image
                 width={40}
                 height={40}
-                src={session.user?.image }
+                src={session.user?.image}
                 alt='Profile Picture'
                 className='mb-4 h-16 w-16 rounded-full'
               />
@@ -50,8 +50,8 @@ export default function SignIn() {
             </p>
             <form
               onSubmit={async (e) => {
-                e.preventDefault();
-                await signIn("google", {redirectTo:"/"});
+                e.preventDefault()
+                await signIn('google', { redirectTo: '/' })
               }}
             >
               <button
@@ -90,5 +90,5 @@ export default function SignIn() {
         )}
       </div>
     </div>
-  );
+  )
 }
