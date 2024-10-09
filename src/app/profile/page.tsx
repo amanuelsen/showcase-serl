@@ -1,4 +1,4 @@
-'use client' // Add this directive to force client-side rendering
+'use client'
 
 import { useSession, signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
@@ -32,7 +32,7 @@ export default function SignIn() {
             ) : (
               <h1 className='bg-red-600'>No image</h1>
             )}
-            <p className='mb-2 text-gray-600'>{session.user?.email}</p>
+            <p className='mb-2 text-gray-600'>Mail: {session.user?.email}</p>
             <button
               onClick={handleSignOut}
               className='flex transform items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 hover:bg-red-500 focus:outline-none focus:ring-4 focus:ring-red-300'
@@ -46,8 +46,10 @@ export default function SignIn() {
               Welcome Back!
             </h2>
             <p className='mb-8 text-gray-600'>
-              Log in with your Google account to continue
+              Log in with your Google or GitHub account to continue
             </p>
+
+            {/* Sign in with Google */}
             <form
               onSubmit={async (e) => {
                 e.preventDefault()
@@ -56,7 +58,7 @@ export default function SignIn() {
             >
               <button
                 type='submit'
-                className='flex transform items-center justify-center gap-3 rounded-lg bg-blue-800 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300'
+                className='mb-4 flex transform items-center justify-center gap-3 rounded-lg bg-blue-800 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300'
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -84,6 +86,30 @@ export default function SignIn() {
                 </svg>
 
                 <span className='font-semibold'>Sign in with Google</span>
+              </button>
+            </form>
+
+            {/* Sign in with GitHub */}
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault()
+                await signIn('github', { redirectTo: '/' })
+              }}
+            >
+              <button
+                type='submit'
+                className='flex transform items-center justify-center gap-3 rounded-lg bg-gray-800 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300'
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 16 16'
+                  fill='currentColor'
+                  width='24px'
+                  height='24px'
+                >
+                  <path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.09.58 1.24.82.72 1.22 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.58.82-2.13-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82.64-.18 1.33-.27 2.02-.27.69 0 1.38.09 2.02.27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.55.82 1.26.82 2.13 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.47 0 1.06-.01 1.92-.01 2.18 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z' />
+                </svg>
+                <span className='font-semibold'>Sign in with GitHub</span>
               </button>
             </form>
           </>
