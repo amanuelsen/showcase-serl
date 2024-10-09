@@ -16,6 +16,7 @@ import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import CircularProgress from '@mui/material/CircularProgress'
 
 const pages = [
   { label: 'Home', path: '/' },
@@ -28,7 +29,7 @@ const pages = [
 const settings = ['Profile', 'Logout']
 
 export default function ResponsiveAppBar() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
 
@@ -141,7 +142,9 @@ export default function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {session ? (
+            {status === 'loading' ? (
+              <CircularProgress color='inherit' />
+            ) : session ? (
               <>
                 <Tooltip title='Open settings'>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -172,7 +175,13 @@ export default function ResponsiveAppBar() {
                       key={setting}
                       onClick={
                         setting === 'Logout'
-                          ? () => signOut()
+                          ? async () => {
+                              try {
+                                await signOut()
+                              } catch (error) {
+                                console.error('Failed to sign out', error)
+                              }
+                            }
                           : setting === 'Profile'
                             ? () => {
                                 handleCloseUserMenu()
@@ -188,7 +197,13 @@ export default function ResponsiveAppBar() {
               </>
             ) : (
               <Button
-                onClick={() => signIn('google', { redirectTo: '/' })}
+                onClick={async () => {
+                  try {
+                    await signIn('google', { redirectTo: '/' })
+                  } catch (error) {
+                    console.error('Failed to sign in', error)
+                  }
+                }}
                 sx={{ color: 'white', my: 2 }}
               >
                 Login
