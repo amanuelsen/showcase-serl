@@ -50,7 +50,7 @@ export default function ResponsiveAppBar() {
   }
 
   return (
-    <AppBar position='static'>
+    <AppBar position='static' style={{ background: 'transparent' }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Typography

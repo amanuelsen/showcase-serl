@@ -39,7 +39,7 @@ export default function RootLayout({
             display: 'flex',
             flexDirection: 'column',
             minHeight: '100vh',
-            background: '#51e2f5',
+            background: 'linear-gradient(135deg, #00ffff 0%, #87ceeb 100%)', // Updated gradient with blue colors
           }}
         >
           <SessionProvider>

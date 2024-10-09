@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className='bg-blue-500 px-6 py-12 font-sans tracking-wide'>
+    <footer className='bg-customCyan px-6 py-12 font-sans tracking-wide'>
       <div className='flex flex-col items-center gap-6'>
         <ul className='flex flex-wrap justify-center gap-4 gap-x-7'>
           {/* LinkedIn Icon */}
@@ -11,6 +11,7 @@ export default function Footer() {
             <a
               href='https://www.linkedin.com/in/senai-amanuel-769016273/'
               className='text-xl hover:text-gray-400'
+              aria-label='LinkedIn'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -33,6 +34,7 @@ export default function Footer() {
             <a
               href='https://github.com/amanuelsen'
               className='text-xl hover:text-gray-400'
+              aria-label='GitHub'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'

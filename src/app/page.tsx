@@ -58,10 +58,15 @@ function Homepage() {
 
   return (
     <div>
-      <div className='mt-10 text-center'>
-        <h2 className='text-3xl font-bold text-gray-800'>
-          The total number of projects is: {numberOfProjects}
+      <div className='mt-10 px-4 text-center sm:px-6 lg:px-8'>
+        <h2 className='text-2xl font-extrabold text-gray-800 sm:text-3xl md:text-4xl'>
+          We have a total of{' '}
+          <span className='text-blue-600'>{numberOfProjects}</span> amazing
+          projects for you!
         </h2>
+        <p className='mt-2 text-base text-gray-600 sm:text-lg md:text-xl'>
+          Dive in and explore the creativity and innovation of our community.
+        </p>
       </div>
 
       <div className='container mx-auto p-4'>

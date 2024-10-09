@@ -20,7 +20,7 @@ export default function Contact() {
         {loading ? (
           <Loadingspinner />
         ) : (
-          <div className='m-3 mx-auto max-w-xl bg-white p-4 font-[sans-serif]'>
+          <div className='m-3 mx-auto max-w-xl bg-customCyan p-4 font-[sans-serif]'>
             <h1 className='text-center text-3xl font-extrabold text-gray-800'>
               Contact us
             </h1>
