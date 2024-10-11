@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className='bg-customCyan px-6 py-12 font-sans tracking-wide'>
+    <footer className='bg-blue-600 px-6 py-12 font-sans tracking-wide'>
       <div className='flex flex-col items-center gap-6'>
         <ul className='flex flex-wrap justify-center gap-4 gap-x-7'>
           {/* LinkedIn Icon */}

@@ -11,8 +11,8 @@ export default function SignIn() {
   }
 
   return (
-    <div className='flex h-[700px] items-center justify-center overflow-hidden bg-customCyan'>
-      <div className='m-5 flex flex-col items-start rounded-lg bg-customCyan p-8 text-center shadow-lg'>
+    <div className='flex h-[700px] items-center justify-center overflow-hidden bg-slate-300'>
+      <div className='m-5 flex flex-col items-start rounded-lg bg-gray-200 p-8 text-center shadow-lg'>
         {session ? (
           <>
             <h2 className='mb-6 text-2xl font-semibold text-gray-800'>

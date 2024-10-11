@@ -6,12 +6,14 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Loadingspinner from '../Components/Loading'
 import { useSession } from 'next-auth/react'
+import { useQRCode } from 'next-qrcode'
 
 const AutoCycleKiosk = () => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
   const [isImageLoading, setIsImageLoading] = useState(true)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const cycleInterval = 5000
+  const { Canvas } = useQRCode()
   const { data: session, status } = useSession()
   const router = useRouter()
   const kioskRef = useRef<HTMLDivElement>(null)
@@ -67,12 +69,9 @@ const AutoCycleKiosk = () => {
   }
 
   return (
-    <div
-      ref={kioskRef}
-      className='flex h-full flex-col overflow-hidden bg-customCyan'
-    >
+    <div ref={kioskRef} className='flex h-full flex-col overflow-hidden'>
       <div className='mb-6 mt-6 flex flex-grow items-center justify-center'>
-        <div className='relative flex h-full w-full max-w-3xl flex-col justify-between rounded-lg bg-customCyan p-4 text-center shadow-lg'>
+        <div className='relative flex h-full w-full max-w-3xl flex-col justify-between rounded-lg bg-slate-200 p-4 text-center shadow-lg'>
           <h1 className='m-2 text-3xl font-bold text-gray-800'>
             Kiosk Mode: Auto Cycle
           </h1>
@@ -129,11 +128,27 @@ const AutoCycleKiosk = () => {
                 <strong>Type:</strong> {currentProject.metadata.type}
               </p>
             </div>
+
+            <div className='mt-4 flex justify-center'>
+              <Canvas
+                text={currentProject.url}
+                options={{
+                  errorCorrectionLevel: 'M',
+                  margin: 3,
+                  scale: 4,
+                  width: 200,
+                  color: {
+                    dark: '#010599FF',
+                    light: '#FFBF60FF',
+                  },
+                }}
+              />
+            </div>
           </div>
 
           <button
             onClick={toggleFullscreen}
-            className='absolute bottom-2 right-2 rounded-full bg-cyan-400 p-2 text-white shadow-lg transition-transform duration-300 ease-in-out hover:bg-blue-600'
+            className='mt-4 self-center rounded-full bg-blue-600 p-2 text-white shadow-lg transition-transform duration-300 ease-in-out hover:bg-blue-600'
           >
             {isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
           </button>
