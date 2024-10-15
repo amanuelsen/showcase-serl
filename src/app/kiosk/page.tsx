@@ -148,7 +148,7 @@ const AutoCycleKiosk = () => {
 
           <button
             onClick={toggleFullscreen}
-            className='mt-4 self-center rounded-full bg-blue-600 p-2 text-white shadow-lg transition-transform duration-300 ease-in-out hover:bg-blue-600'
+            className='mt-4 self-center rounded-full bg-blue-600 p-2 text-white shadow-lg transition-transform duration-300 ease-in-out hover:bg-blue-600 hidden md:block'
           >
             {isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
           </button>
