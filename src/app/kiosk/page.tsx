@@ -11,7 +11,6 @@ import { useQRCode } from 'next-qrcode'
 const AutoCycleKiosk = () => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
   const [isImageLoading, setIsImageLoading] = useState(true)
-  const [isFullscreen, setIsFullscreen] = useState(false)
   const cycleInterval = 5000
   const { Canvas } = useQRCode()
   const { data: session, status } = useSession()
@@ -46,16 +45,6 @@ const AutoCycleKiosk = () => {
 
   const handleImageLoad = () => {
     setIsImageLoading(false)
-  }
-
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      kioskRef.current?.requestFullscreen()
-      setIsFullscreen(true)
-    } else {
-      document.exitFullscreen()
-      setIsFullscreen(false)
-    }
   }
 
   const currentProject = data[currentProjectIndex]
@@ -145,13 +134,6 @@ const AutoCycleKiosk = () => {
               />
             </div>
           </div>
-
-          <button
-            onClick={toggleFullscreen}
-            className='mt-4 self-center rounded-full bg-blue-600 p-2 text-white shadow-lg transition-transform duration-300 ease-in-out hover:bg-blue-600 hidden md:block'
-          >
-            {isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
-          </button>
         </div>
       </div>
     </div>
