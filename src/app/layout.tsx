@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbarcomp from '@/app/Components/Navbar'
 import Footer from './Components/Footer'
 import { SessionProvider } from 'next-auth/react'
-
+import '@testing-library/jest-dom';
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',

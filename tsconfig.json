@@ -29,6 +29,6 @@
     "src/app/project/details/[id].jsx",
     "src/app/about/page.jsx",
     "src/app/Components/Navbar.tsx"
-  ],
+, "jest.config.js"  ],
   "exclude": ["node_modules"]
 }
