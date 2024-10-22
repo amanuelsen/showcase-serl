@@ -1,4 +1,4 @@
-'use client'
+'use client';
 export default function About() {
   return (
     <div>
@@ -92,5 +92,5 @@ export default function About() {
         </div>
       </div>
     </div>
-  )
+  );
 }

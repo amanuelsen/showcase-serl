@@ -1,37 +1,37 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import data from './lib/data'
-import Loadingspinner from './Components/Loading'
-import Image from 'next/image'
-import { Card, CardHeader, CardBody } from '@nextui-org/react'
-import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import data from './lib/data';
+import Loadingspinner from './Components/Loading';
+import Image from 'next/image';
+import { Card, CardHeader, CardBody } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 function Homepage() {
-  const [loading, setLoading] = useState(true)
-  const [searchQuery, setSearchQuery] = useState('')
-  const { data: session, status } = useSession()
-  const router = useRouter()
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      router.push('/profile')
+      router.push('/profile');
     }
-  }, [status, router])
+  }, [status, router]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false)
-    }, 500)
+      setLoading(false);
+    }, 500);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value.toLowerCase())
-  }
+    setSearchQuery(e.target.value.toLowerCase());
+  };
 
   const filteredProjects = data.filter(
     (project) =>
@@ -40,20 +40,20 @@ function Homepage() {
         tag.toLowerCase().includes(searchQuery)
       ) ||
       project.who.toLowerCase().includes(searchQuery)
-  )
+  );
 
-  const numberOfProjects = data.length
+  const numberOfProjects = data.length;
 
   if (status === 'loading') {
     return (
       <div>
         <Loadingspinner />
       </div>
-    )
+    );
   }
 
   if (!session) {
-    return null
+    return null;
   }
 
   return (
@@ -111,7 +111,7 @@ function Homepage() {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Homepage
+export default Homepage;

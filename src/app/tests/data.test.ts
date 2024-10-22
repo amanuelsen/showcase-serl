@@ -1,4 +1,21 @@
 import data from '../lib/data';
+import { StaticImageData } from 'next/image';
+
+interface Metadata {
+  tags: string[];
+  type: string;
+}
+
+interface DataItem {
+  id: number;
+  title: string;
+  description: string;
+  who: string;
+  metadata: Metadata;
+  screenshot: StaticImageData;
+  url: string;
+  datePublished: string;
+}
 
 describe('Data', () => {
   it('should be an array', () => {
@@ -6,7 +23,7 @@ describe('Data', () => {
   });
 
   it('should have objects with the correct structure', () => {
-    data.forEach((item: any) => {
+    data.forEach((item: DataItem) => {
       expect(item).toHaveProperty('id');
       expect(item).toHaveProperty('title');
       expect(item).toHaveProperty('description');

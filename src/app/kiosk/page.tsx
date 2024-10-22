@@ -1,60 +1,60 @@
-'use client'
+'use client';
 
-import { useState, useEffect, useRef } from 'react'
-import data from '../lib/data'
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import Loadingspinner from '../Components/Loading'
-import { useSession } from 'next-auth/react'
-import { useQRCode } from 'next-qrcode'
+import { useState, useEffect, useRef } from 'react';
+import data from '../lib/data';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import Loadingspinner from '../Components/Loading';
+import { useSession } from 'next-auth/react';
+import { useQRCode } from 'next-qrcode';
 
 const AutoCycleKiosk = () => {
-  const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
-  const [isImageLoading, setIsImageLoading] = useState(true)
-  const cycleInterval = 5000
-  const { Canvas } = useQRCode()
-  const { data: session, status } = useSession()
-  const router = useRouter()
-  const kioskRef = useRef<HTMLDivElement>(null)
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [isImageLoading, setIsImageLoading] = useState(true);
+  const cycleInterval = 5000;
+  const { Canvas } = useQRCode();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const kioskRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (status == 'unauthenticated') {
-      router.push('/profile')
+      router.push('/profile');
     }
-  }, [status, router])
+  }, [status, router]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % data.length)
-    }, cycleInterval)
+      setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % data.length);
+    }, cycleInterval);
 
-    return () => clearInterval(intervalId)
-  }, [])
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleNext = () => {
-    setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % data.length)
-    setIsImageLoading(true)
-  }
+    setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % data.length);
+    setIsImageLoading(true);
+  };
 
   const handlePrevious = () => {
     setCurrentProjectIndex((prevIndex) =>
       prevIndex === 0 ? data.length - 1 : prevIndex - 1
-    )
-    setIsImageLoading(true)
-  }
+    );
+    setIsImageLoading(true);
+  };
 
   const handleImageLoad = () => {
-    setIsImageLoading(false)
-  }
+    setIsImageLoading(false);
+  };
 
-  const currentProject = data[currentProjectIndex]
+  const currentProject = data[currentProjectIndex];
 
   if (status == 'loading') {
-    return <Loadingspinner />
+    return <Loadingspinner />;
   }
 
   if (!session) {
-    return null
+    return null;
   }
 
   return (
@@ -137,7 +137,7 @@ const AutoCycleKiosk = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AutoCycleKiosk
+export default AutoCycleKiosk;

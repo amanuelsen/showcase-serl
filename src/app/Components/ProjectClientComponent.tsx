@@ -1,47 +1,47 @@
-'use client'
+'use client';
 
-import React, { useEffect } from 'react'
-import Image, { StaticImageData } from 'next/image'
-import { useRouter } from 'next/navigation'
-import { useQRCode } from 'next-qrcode'
-import { useSession } from 'next-auth/react'
-import Loadingspinner from './Loading'
+import React, { useEffect } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useQRCode } from 'next-qrcode';
+import { useSession } from 'next-auth/react';
+import Loadingspinner from './Loading';
 
 interface ProjectType {
-  id: number
-  title: string
-  description: string
-  who: string
+  id: number;
+  title: string;
+  description: string;
+  who: string;
   metadata: {
-    tags: string[]
-    type: string
-  }
-  screenshot: StaticImageData
-  url: string
-  datePublished: string
+    tags: string[];
+    type: string;
+  };
+  screenshot: StaticImageData;
+  url: string;
+  datePublished: string;
 }
 
 const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
-  const router = useRouter()
-  const { Canvas } = useQRCode()
-  const { data: session, status } = useSession()
+  const router = useRouter();
+  const { Canvas } = useQRCode();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      router.push('/profile')
+      router.push('/profile');
     }
-  }, [status, router])
+  }, [status, router]);
 
   if (status === 'loading') {
     return (
       <div>
         <Loadingspinner />
       </div>
-    )
+    );
   }
 
   if (!session) {
-    return null
+    return null;
   }
 
   return (
@@ -49,7 +49,7 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
       <div className='mb-4 flex justify-end'>
         <button
           onClick={() => router.back()}
-          className='rounded-full bg-blue-500 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 ease-in-out hover:bg-blue-600'
+          className='rounded-full bg-customCyan px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 ease-in-out hover:bg-blue-600'
         >
           Back
         </button>
@@ -133,7 +133,7 @@ const ProjectClientComponent = ({ project }: { project: ProjectType }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectClientComponent
+export default ProjectClientComponent;

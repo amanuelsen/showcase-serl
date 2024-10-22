@@ -1,5 +1,27 @@
 {
-  "extends": ["eslint:recommended", "next/core-web-vitals", "prettier"],
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true // Add this line
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"], // Ensure prettier is included
   "rules": {
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   }

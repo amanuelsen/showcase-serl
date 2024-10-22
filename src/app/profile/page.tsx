@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { useSession, signIn, signOut } from 'next-auth/react'
-import Image from 'next/image'
+import { useSession, signIn, signOut } from 'next-auth/react';
+import Image from 'next/image';
 
 export default function SignIn() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   const handleSignOut = async () => {
-    await signOut()
-  }
+    await signOut();
+  };
 
   return (
     <div className='flex h-[700px] items-center justify-center overflow-hidden bg-slate-300'>
@@ -52,8 +52,8 @@ export default function SignIn() {
             {/* Sign in with Google */}
             <form
               onSubmit={async (e) => {
-                e.preventDefault()
-                await signIn('google', { redirectTo: '/' })
+                e.preventDefault();
+                await signIn('google', { redirectTo: '/' });
               }}
             >
               <button
@@ -92,8 +92,8 @@ export default function SignIn() {
             {/* Sign in with GitHub */}
             <form
               onSubmit={async (e) => {
-                e.preventDefault()
-                await signIn('github', { redirectTo: '/' })
+                e.preventDefault();
+                await signIn('github', { redirectTo: '/' });
               }}
             >
               <button
@@ -116,5 +116,5 @@ export default function SignIn() {
         )}
       </div>
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import { nextui } from '@nextui-org/theme'
-import type { Config } from 'tailwindcss'
+import { nextui } from '@nextui-org/theme';
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -12,12 +12,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        customCyan: '#51e2f5',
+        customCyan: '#1976d2',
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
     },
   },
   plugins: [nextui()],
-}
-export default config
+};
+export default config;

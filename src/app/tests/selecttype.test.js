@@ -5,18 +5,26 @@ import '@testing-library/jest-dom';
 
 test('renders CreatorSelect component', () => {
   const setSelectedCreator = jest.fn();
-  render(<CreatorSelect selectedCreator="All" setSelectedCreator={setSelectedCreator} />);
+  render(
+    <CreatorSelect
+      selectedCreator='All'
+      setSelectedCreator={setSelectedCreator}
+    />
+  );
 
   const selectElement = screen.getByLabelText('Creator');
   expect(selectElement).toBeInTheDocument();
-
-  const allOption = screen.getByText('All');
-
+  expect(screen.getByText('All')).toBeInTheDocument();
 });
 
 test('changes value when a new option is selected', () => {
   const setSelectedCreator = jest.fn();
-  render(<CreatorSelect selectedCreator="All" setSelectedCreator={setSelectedCreator} />);
+  render(
+    <CreatorSelect
+      selectedCreator='All'
+      setSelectedCreator={setSelectedCreator}
+    />
+  );
 
   fireEvent.mouseDown(screen.getByLabelText('Creator'));
 

@@ -1,22 +1,22 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { useState } from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
-import CircularProgress from '@mui/material/CircularProgress'
+import * as React from 'react';
+import { useState } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const pages = [
   { label: 'Home', path: '/' },
@@ -24,30 +24,30 @@ const pages = [
   { label: 'Kiosk', path: '/kiosk' },
   { label: 'Profile', path: '/profile' },
   { label: 'Contact', path: '/contact' },
-]
+];
 
-const settings = ['Profile', 'Logout']
+const settings = ['Profile', 'Logout'];
 
 export default function ResponsiveAppBar() {
-  const { data: session, status } = useSession()
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
+  const { data: session, status } = useSession();
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget)
-  }
+    setAnchorElNav(event.currentTarget);
+  };
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget)
-  }
+    setAnchorElUser(event.currentTarget);
+  };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
+    setAnchorElNav(null);
+  };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
+    setAnchorElUser(null);
+  };
 
   return (
     <AppBar position='static'>
@@ -177,15 +177,15 @@ export default function ResponsiveAppBar() {
                         setting === 'Logout'
                           ? async () => {
                               try {
-                                await signOut()
+                                await signOut();
                               } catch (error) {
-                                console.error('Failed to sign out', error)
+                                console.error('Failed to sign out', error);
                               }
                             }
                           : setting === 'Profile'
                             ? () => {
-                                handleCloseUserMenu()
-                                window.location.href = '/profile'
+                                handleCloseUserMenu();
+                                window.location.href = '/profile';
                               }
                             : handleCloseUserMenu
                       }
@@ -199,9 +199,9 @@ export default function ResponsiveAppBar() {
               <Button
                 onClick={async () => {
                   try {
-                    await signIn('google', { redirectTo: '/' })
+                    await signIn('google', { redirectTo: '/' });
                   } catch (error) {
-                    console.error('Failed to sign in', error)
+                    console.error('Failed to sign in', error);
                   }
                 }}
                 sx={{ color: 'white', my: 2 }}
@@ -213,5 +213,5 @@ export default function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  )
+  );
 }

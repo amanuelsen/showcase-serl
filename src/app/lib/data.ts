@@ -1,14 +1,14 @@
-import todolist from '../public/todolist.jpg'
-import ecom from '../public/ecom.jpg'
-import blog from '../public/blog.jpg'
-import game from '../public/game.jpg'
-import clone from '../public/clone.png'
-import music from '../public/music.png'
-import learing from '../public/E-learning.png'
-import fit from '../public/fit.png'
-import virtual from '../public/virtual.png'
-import chatbot from '../public/AI-chatt.png'
-import video from '../public/video.png'
+import todolist from '../public/todolist.jpg';
+import ecom from '../public/ecom.jpg';
+import blog from '../public/blog.jpg';
+import game from '../public/game.jpg';
+import clone from '../public/clone.png';
+import music from '../public/music.png';
+import learing from '../public/E-learning.png';
+import fit from '../public/fit.png';
+import virtual from '../public/virtual.png';
+import chatbot from '../public/AI-chatt.png';
+import video from '../public/video.png';
 
 const data = [
   {
@@ -164,6 +164,6 @@ const data = [
     url: 'https://www.pilatesanytime.com/',
     datePublished: '2023-08-11',
   },
-]
+];
 
-export default data
+export default data;

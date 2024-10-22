@@ -1,41 +1,41 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import data from '../lib/data'
-import { Card, CardHeader } from '@nextui-org/react'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import Selecttype from '@/app/Components/Selecttype'
-import Loadingspinner from '../Components/Loading'
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import data from '../lib/data';
+import { Card, CardHeader } from '@nextui-org/react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import Selecttype from '@/app/Components/Selecttype';
+import Loadingspinner from '../Components/Loading';
 function Projectss() {
-  const [selectedCreator, setSelectedCreator] = useState('All')
-  const { data: session, status } = useSession()
-  const router = useRouter()
+  const [selectedCreator, setSelectedCreator] = useState('All');
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      router.push('/profile')
+      router.push('/profile');
     }
-  }, [status, router])
+  }, [status, router]);
 
   const filteredProjects = data.filter(
     (project) =>
       selectedCreator === 'All' ||
       project.who.toLowerCase() === selectedCreator.toLowerCase()
-  )
+  );
 
   if (status === 'loading') {
     return (
       <div>
         <Loadingspinner />
       </div>
-    )
+    );
   }
 
   if (!session) {
-    return null
+    return null;
   }
 
   return (
@@ -72,7 +72,7 @@ function Projectss() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Projectss
+export default Projectss;
